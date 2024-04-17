@@ -8,21 +8,23 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique praesentium, nostrum obcaecati nesciunt adipisci repudiandae aliquid quidem optio numquam quaerat modi laborum exercitationem? Earum ipsum, maiores alias ex nobis et.</p>
-
     <div id="page" class="site">
         <header>
             <section class="top-bar">
-                <div class="logo">
-                    Logo
-                </div>
-                <div class="searchbox">
-                    Search
+                <div class="container">
+                    <div class="logo">
+                        Logo
+                    </div>
+                    <div class="searchbox">
+                        Search
+                    </div>
                 </div>
             </section>
             <section class="menu-area">
-                <nav class="main-menu">
-                    Menu
-                </nav>
+                <div class="container">
+                    <nav class="main-menu">
+                        <?php wp_nav_menu(['theme_location' => 'wp_devs_main_menu', 'depth' => 2]); ?>
+                    </nav>
+                </div>
             </section>
         </header>
