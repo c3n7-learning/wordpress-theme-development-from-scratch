@@ -1,3 +1,8 @@
+<?php
+/* is usually reserved for the blog page, or as a last fallback 
+* https://developer.wordpress.org/themes/basics/template-hierarchy/
+*/ ?>
+
 <?php get_header() ?>
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
