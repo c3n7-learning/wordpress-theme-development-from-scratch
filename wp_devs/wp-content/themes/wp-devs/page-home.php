@@ -32,29 +32,43 @@
                 </div>
             </section>
             <section class="home-blog">
+                <h2>Latest Items</h2>
                 <div class="container">
-                    <div class="blog-items">
-                        <?php
-                        if (have_posts()) {
-                            while (have_posts()) {
-                                the_post();
-                        ?>
-                                <article>
-                                    <h2><?php the_title(); ?></h2>
-                                    <div class="meta-info">
-                                        <p>Posted in <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?> </p>
-                                        <p>Categories <?php the_category(' ') ?></p>
-                                        <p>Tags: <?php the_tags('', ', ') ?></p>
-                                    </div>
-                                    <?php the_content(); ?>
-                                </article>
-                        <?php
-                            }
-                        } else {
-                            echo "<p>Nothing yet to be displayed</p>";
+                    <?php
+                    $args = [
+                        'post_type' => 'post',
+                        'posts_per_page' => 3,
+                        'category__in' => [10, 11, 12],
+                        'category__not_in' => [1],
+                    ];
+
+                    /* get_posts() can do the same */
+                    $postList = new WP_Query($args);
+
+                    if ($postList->have_posts()) {
+                        while ($postList->have_posts()) {
+                            $postList->the_post();
+                    ?>
+                            <article class="latest-news">
+                                <?php the_post_thumbnail('large'); ?>
+                                <h3><?php the_title(); ?></h3>
+                                <div class="meta-info">
+                                    <p>
+                                        by <span><?php the_author_posts_link(); ?></span>
+                                        Categories <span> <?php the_category(' ') ?> </span>
+                                        Tags: <?php the_tags('', ', ') ?>
+                                    </p>
+                                    <p><span><?php echo get_the_date(); ?></span></p>
+                                </div>
+                                <?php the_excerpt(); ?>
+                            </article>
+                    <?php
                         }
-                        ?>
-                    </div>
+                        wp_reset_postdata();
+                    } else {
+                        echo "<p>Nothing yet to be displayed</p>";
+                    }
+                    ?>
                 </div>
             </section>
         </main>

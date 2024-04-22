@@ -34,6 +34,10 @@
                     ?>
                 </div>
 
+                <!-- You can create a custom sidbar, save it as sidebar-bottom.php, register it with the same name, and add it as get_sidebar('bottom') -->
+                <?php
+                /* If I want the code snippet <?php get_sidebar( 'home' ); ?>  to call some content, I need to have a file named sidebar-home.php at the root of my theme's folder. */
+                ?>
                 <?php get_sidebar(); ?>
             </div>
         </main>
