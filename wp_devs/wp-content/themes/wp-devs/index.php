@@ -33,6 +33,8 @@
                     }
                     ?>
                 </div>
+
+                <?php get_sidebar(); ?>
             </div>
         </main>
     </div>
