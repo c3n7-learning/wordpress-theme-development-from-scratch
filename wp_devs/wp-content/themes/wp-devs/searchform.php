@@ -3,5 +3,11 @@
         <label class="screen-reader-text" for="s">Search for:</label>
         <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s">
         <input type="submit" id="searchsubmit" value="Search">
+        <?php /*
+            https://developer.wordpress.org/reference/functions/get_search_form/#user-contributed-notes
+            To display only posts
+            <input type="hidden" value="post" name="post_type" id="post_type" />
+        */
+        ?>
     </div>
 </form>
