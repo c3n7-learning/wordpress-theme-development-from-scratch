@@ -34,6 +34,12 @@ function wpdevs_config()
         'flex-width' => true
     ]);
 
+    // Add RSS Feeds
+    add_theme_support('automatic-feed-links');
+
+    // https://developer.wordpress.org/reference/functions/add_theme_support/
+    add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
+
     add_theme_support('title-tag');
 }
 
@@ -81,3 +87,12 @@ function wpdevs_sidebars()
 }
 
 add_action('widgets_init', 'wpdevs_sidebars');
+
+
+// For Wordpress < 5.2 compatibility
+if (!function_exists('wp_body_open')) {
+    function wp_body_open()
+    {
+        do_action('wp_body_open');
+    }
+}

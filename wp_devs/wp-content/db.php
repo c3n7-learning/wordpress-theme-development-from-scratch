@@ -1,0 +1,1 @@
+/home/c3n7/Documents/Dev/learning/web/php/wordpress/wordpress-theme-development-from-scratch/wp_devs/wp-content/plugins/query-monitor/wp-content/db.php
