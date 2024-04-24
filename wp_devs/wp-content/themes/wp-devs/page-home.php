@@ -55,11 +55,15 @@
                 <h2>Latest Items</h2>
                 <div class="container">
                     <?php
+                    $per_page = get_theme_mod('set_per_page', 3);
+                    $category_include = get_theme_mod('set_category_include');
+                    $category_exclude = get_theme_mod('set_category_exclude');
+
                     $args = [
                         'post_type' => 'post',
-                        'posts_per_page' => 3,
-                        'category__in' => [10, 11, 12],
-                        'category__not_in' => [1],
+                        'posts_per_page' => $per_page,
+                        'category__in' => explode(',', $category_include),
+                        'category__not_in' => explode(',', $category_exclude),
                     ];
 
                     /* get_posts() can do the same */
