@@ -94,13 +94,13 @@ function wpdevs_customizer($wp_customize)
     ]);
 
     // Hero Height
-    $wp_customize->add_setting('set_hero_button_height', [
+    $wp_customize->add_setting('set_hero_height', [
         'type' => 'theme_mod',
         'default' => 800,
         'sanitize_callback' => 'absint',
     ]);
 
-    $wp_customize->add_control('set_hero_button_height', [
+    $wp_customize->add_control('set_hero_height', [
         'label' => 'Hero height',
         'description' => 'Please type your hero height',
         'section' => 'sec_hero',
