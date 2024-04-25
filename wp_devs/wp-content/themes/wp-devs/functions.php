@@ -4,6 +4,8 @@ require get_template_directory() . '/inc/customizer.php';
 
 function wpdevs_load_scripts()
 {
+    // TODO: When in PROD
+    wp_enqueue_style('wpdevs-style', get_stylesheet_uri(), [], wp_get_theme()->get('Version'), 'all');
     wp_enqueue_style('wpdevs-style', get_stylesheet_uri(), [], filemtime(get_template_directory() . '/style.css'), 'all');
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap', [], null);
     wp_enqueue_script('dropdown', get_template_directory_uri() . "/js/dropdown.js", [], '1.0', true);
