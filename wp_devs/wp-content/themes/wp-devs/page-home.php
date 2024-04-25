@@ -3,14 +3,14 @@
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <?php
-            $hero_title = get_theme_mod('set_hero_title', __('Your Title Goes Here', 'wp-devs'));
-            $hero_subtitle = get_theme_mod('set_hero_subtitle', __('Your interesting subtitle', 'wp-devs'));
+            $hero_title = esc_html(get_theme_mod('set_hero_title', __('Your Title Goes Here', 'wp-devs')));
+            $hero_subtitle = esc_html(get_theme_mod('set_hero_subtitle', __('Your interesting subtitle', 'wp-devs')));
 
-            $hero_button_link = get_theme_mod('set_hero_button_link', '#');
-            $hero_button_text = get_theme_mod('set_hero_button_text', __('Learn More', 'wp-devs'));
+            $hero_button_link = esc_url(get_theme_mod('set_hero_button_link', '#'));
+            $hero_button_text = esc_html(get_theme_mod('set_hero_button_text', __('Learn More', 'wp-devs')));
 
-            $hero_height = get_theme_mod('set_hero_height', 800);
-            $hero_background = wp_get_attachment_url(get_theme_mod('set_hero_background'));
+            $hero_height = esc_attr(get_theme_mod('set_hero_height', 800));
+            $hero_background = esc_attr(wp_get_attachment_url(get_theme_mod('set_hero_background')));
             ?>
             <section class="hero" style="background-image: url('<?php echo $hero_background; ?>')">
                 <div class="overlay" style="min-height: <?php echo $hero_height; ?>px;">
@@ -26,7 +26,7 @@
                 </div>
             </section>
             <section class="services">
-                <h2><?php _e('Services', 'wp-devs') ?></h2>
+                <h2><?php esc_html_e('Services', 'wp-devs') ?></h2>
                 <div class="container">
                     <div class="services-item">
                         <?php
@@ -52,12 +52,12 @@
                 </div>
             </section>
             <section class="home-blog">
-                <h2><?php _e('Latest Items', 'wp-devs') ?></h2>
+                <h2><?php esc_html_e('Latest Items', 'wp-devs') ?></h2>
                 <div class="container">
                     <?php
-                    $per_page = get_theme_mod('set_per_page', 3);
-                    $category_include = get_theme_mod('set_category_include');
-                    $category_exclude = get_theme_mod('set_category_exclude');
+                    $per_page = esc_html(get_theme_mod('set_per_page', 3));
+                    $category_include = esc_html(get_theme_mod('set_category_include'));
+                    $category_exclude = esc_html(get_theme_mod('set_category_exclude'));
 
                     $args = [
                         'post_type' => 'post',
@@ -76,7 +76,7 @@
                         }
                         wp_reset_postdata();
                     else : ?>
-                        <p><?php _e('Nothing yet to be displayed', 'wp-devs') ?></p>
+                        <p><?php esc_html_e('Nothing yet to be displayed', 'wp-devs') ?></p>
                     <?php
                     endif;
                     ?>

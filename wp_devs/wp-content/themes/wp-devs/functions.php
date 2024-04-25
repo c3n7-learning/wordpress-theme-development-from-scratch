@@ -20,8 +20,8 @@ function wpdevs_config()
 
     register_nav_menus(
         [
-            'wp_devs_main_menu' => __('Main Menu', 'wp-devs'),
-            'wp_devs_footer_menu' => __('Footer Menu', 'wp-devs'),
+            'wp_devs_main_menu' => esc_html__('Main Menu', 'wp-devs'),
+            'wp_devs_footer_menu' => esc_html__('Footer Menu', 'wp-devs'),
         ]
     );
 
@@ -53,9 +53,9 @@ add_action('after_setup_theme', 'wpdevs_config', 0);
 function wpdevs_sidebars()
 {
     register_sidebar([
-        'name' => __('Blog Sidebar', 'wp-devs'),
+        'name' => esc_html__('Blog Sidebar', 'wp-devs'),
         'id' => 'sidebar-blog',
-        'description' => __('This is the blog sidebar.', 'wp-devs'),
+        'description' => esc_html__('This is the blog sidebar.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
@@ -63,27 +63,27 @@ function wpdevs_sidebars()
     ]);
 
     register_sidebar([
-        'name' => __('Service 1', 'wp-devs'),
+        'name' => esc_html__('Service 1', 'wp-devs'),
         'id' => 'service-1',
-        'description' => __('First service area.', 'wp-devs'),
+        'description' => esc_html__('First service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ]);
     register_sidebar([
-        'name' => __('Service 2', 'wp-devs'),
+        'name' => esc_html__('Service 2', 'wp-devs'),
         'id' => 'service-2',
-        'description' => __('Second service area.', 'wp-devs'),
+        'description' => esc_html__('Second service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ]);
     register_sidebar([
-        'name' => __('Service 3', 'wp-devs'),
+        'name' => esc_html__('Service 3', 'wp-devs'),
         'id' => 'service-3',
-        'description' => __('Third service area.', 'wp-devs'),
+        'description' => esc_html__('Third service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',

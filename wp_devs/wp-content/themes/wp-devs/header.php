@@ -21,7 +21,7 @@
                             the_custom_logo();
                         } else {
                         ?>
-                            <a href="<?php echo home_url('/'); ?>">
+                            <a href="<?php echo esc_url(home_url('/')); ?>">
                                 <span> <?php bloginfo('name') ?> </span>
                             </a>
                         <?php
