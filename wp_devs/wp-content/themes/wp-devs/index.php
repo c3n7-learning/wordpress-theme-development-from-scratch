@@ -8,40 +8,40 @@
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-            <h1>Blog</h1>
+            <h1><?php _e('Blog', 'wp-devs') ?></h1>
             <div class="container">
                 <div class="blog-items">
                     <?php
-                    if (have_posts()) {
+                    if (have_posts()) :
                         while (have_posts()) {
                             the_post();
                             get_template_part('parts/content');
                         }
                     ?>
                         <div class="wpdevs-pagination">
-                            <div class="pages new">
-                                <?php previous_posts_link("<< Newer posts") ?>
-                            </div>
-                            <div class="pages old">
-                                <?php next_posts_link("Older posts >>") ?>
-
-                            </div>
+                            < <div class="pages new">
+                                <?php previous_posts_link(__("<< Newer posts", 'wp-devs')) ?>
                         </div>
-                    <?php
-                    } else {
-                        echo "<p>Nothing yet to be displayed</p>";
-                    }
-                    ?>
+                        <div class="pages old">
+                            <?php next_posts_link(__("Older posts >>", 'wp-devs')) ?>
+                        </div>
                 </div>
-
-                <!-- You can create a custom sidbar, save it as sidebar-bottom.php, register it with the same name, and add it as get_sidebar('bottom') -->
-                <?php
-                /* If I want the code snippet <?php get_sidebar( 'home' ); ?>  to call some content, I need to have a file named sidebar-home.php at the root of my theme's folder. */
-                ?>
-                <?php get_sidebar(); ?>
+            <?php
+                    else : ?>
+                <p><?php _e('Nothing yet to be displayed', 'wp-devs') ?></p>
+            <?php
+                    endif;
+            ?>
             </div>
-        </main>
+
+            <!-- You can create a custom sidbar, save it as sidebar-bottom.php, register it with the same name, and add it as get_sidebar('bottom') -->
+            <?php
+            /* If I want the code snippet <?php get_sidebar( 'home' ); ?>  to call some content, I need to have a file named sidebar-home.php at the root of my theme's folder. */
+            ?>
+            <?php get_sidebar(); ?>
     </div>
+    </main>
+</div>
 </div>
 
 <?php get_footer() ?>

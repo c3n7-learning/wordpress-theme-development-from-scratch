@@ -13,7 +13,7 @@ Template Name: General Template
             <div class="container">
                 <div class="general-template">
                     <?php
-                    if (have_posts()) {
+                    if (have_posts()) :
                         while (have_posts()) {
                             the_post();
                     ?>
@@ -21,11 +21,12 @@ Template Name: General Template
                                 <h2><?php the_title(); ?></h2>
                                 <?php the_content(); ?>
                             </article>
-                    <?php
+                        <?php
                         }
-                    } else {
-                        echo "<p>Nothing yet to be displayed</p>";
-                    }
+                    else : ?>
+                        <p><?php _e('Nothing yet to be displayed', 'wp-devs') ?></p>
+                    <?php
+                    endif;
                     ?>
                 </div>
             </div>

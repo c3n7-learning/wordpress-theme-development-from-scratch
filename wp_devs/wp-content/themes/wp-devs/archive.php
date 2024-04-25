@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="archive-items">
                     <?php
-                    if (have_posts()) {
+                    if (have_posts()) :
                         while (have_posts()) {
                             the_post();
                             get_template_part('parts/content');
@@ -22,17 +22,17 @@
                     ?>
                         <div class="wpdevs-pagination">
                             <div class="pages new">
-                                <?php previous_posts_link("<< Newer posts") ?>
+                                <?php previous_posts_link(__("<< Newer posts", 'wp-devs')) ?>
                             </div>
                             <div class="pages old">
-                                <?php next_posts_link("Older posts >>") ?>
-
+                                <?php next_posts_link(__("Older posts >>", 'wp-devs')) ?>
                             </div>
                         </div>
                     <?php
-                    } else {
-                        echo "<p>Nothing yet to be displayed</p>";
-                    }
+                    else : ?>
+                        <p><?php _e('Nothing yet to be displayed', 'wp-devs') ?></p>
+                    <?php
+                    endif;
                     ?>
                 </div>
 

@@ -15,10 +15,13 @@ add_action('wp_enqueue_scripts', 'wpdevs_load_scripts');
 
 function wpdevs_config()
 {
+    $textdomain = 'wp-devs';
+    load_theme_textdomain($textdomain, get_template_directory() . '/languages/');
+
     register_nav_menus(
         [
-            'wp_devs_main_menu' => 'Main Menu',
-            'wp_devs_footer_menu' => 'Footer Menu',
+            'wp_devs_main_menu' => __('Main Menu', 'wp-devs'),
+            'wp_devs_footer_menu' => __('Footer Menu', 'wp-devs'),
         ]
     );
 
@@ -50,9 +53,9 @@ add_action('after_setup_theme', 'wpdevs_config', 0);
 function wpdevs_sidebars()
 {
     register_sidebar([
-        'name' => 'Blog Sidebar',
+        'name' => __('Blog Sidebar', 'wp-devs'),
         'id' => 'sidebar-blog',
-        'description' => 'This is the blog sidebar.',
+        'description' => __('This is the blog sidebar.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
@@ -60,27 +63,27 @@ function wpdevs_sidebars()
     ]);
 
     register_sidebar([
-        'name' => 'Service 1',
+        'name' => __('Service 1', 'wp-devs'),
         'id' => 'service-1',
-        'description' => 'First service area.',
+        'description' => __('First service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ]);
     register_sidebar([
-        'name' => 'Service 2',
+        'name' => __('Service 2', 'wp-devs'),
         'id' => 'service-2',
-        'description' => 'Second service area.',
+        'description' => __('Second service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
         'after_title' => '</h4>',
     ]);
     register_sidebar([
-        'name' => 'Service 3',
+        'name' => __('Service 3', 'wp-devs'),
         'id' => 'service-3',
-        'description' => 'Third service area.',
+        'description' => __('Third service area.', 'wp-devs'),
         'before_widget' => '<div class="widget-wrapper">',
         'after_widget' => '</div>',
         'before_title' => '<h4 class="widget-title">',
