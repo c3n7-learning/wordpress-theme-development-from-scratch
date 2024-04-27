@@ -1,0 +1,11 @@
+/*
+Theme Name: WP Devs Child
+Template: wp-devs
+Version: 1.0
+
+https://developer.wordpress.org/themes/advanced-topics/child-themes/
+*/
+
+.top-bar {
+  background-color: #ff0000;
+}
