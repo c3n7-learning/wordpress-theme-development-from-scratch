@@ -1143,3 +1143,19 @@ a img.aligncenter {
 .site-content {
   overflow: hidden;
 }
+
+.has-primary-background-color {
+  background-color: var(--wpdevs-black-blue);
+}
+
+.has-primary-color {
+  color: var(--wpdevs-black-blue);
+}
+
+.has-secondary-background-color {
+  background-color: var(--wpdevs-yellow);
+}
+
+.has-secondary-color {
+  color: var(--wpdevs-yellow);
+}
