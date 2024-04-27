@@ -48,9 +48,36 @@ function wpdevs_config()
     add_theme_support('html5', array('comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script'));
 
     add_theme_support('title-tag');
+
+    add_theme_support('align-wide');
+    add_theme_support('responsive-embeds');
+    add_theme_support('editor-styles');
+    add_editor_style('style-editor.css');
+
+    add_theme_support('wp-block-styles');
 }
 
 add_action('after_setup_theme', 'wpdevs_config', 0);
+
+function wpdevs_register_block_styles()
+{
+    /**
+     * In Wordpress bloc editor, type in the JS console:
+     * wp.blocks.getBlockTypes()
+     */
+    register_block_style(
+        'core/quote',
+        array(
+            'name'  => 'red-quote',
+            'label' => 'Red Quote',
+            'is_default'    => true,
+            // 'inline_style'  => '.wp-block-quote.is-style-red-quote { border-left: 7px solid #ff0000; background: #f9f3f3; padding: 10px 20px; }',
+            'style_handle' => 'wpdevs-block-style'
+        )
+    );
+}
+
+add_action('init-hook', 'wpdevs_register_block_styles');
 
 function wpdevs_sidebars()
 {
