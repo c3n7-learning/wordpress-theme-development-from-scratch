@@ -1144,7 +1144,8 @@ a img.aligncenter {
   overflow: hidden;
 }
 
-.has-primary-background-color {
+/* Theme.json takes care of this */
+/* .has-primary-background-color {
   background-color: var(--wpdevs-black-blue);
 }
 
@@ -1158,4 +1159,4 @@ a img.aligncenter {
 
 .has-secondary-color {
   color: var(--wpdevs-yellow);
-}
+} */
