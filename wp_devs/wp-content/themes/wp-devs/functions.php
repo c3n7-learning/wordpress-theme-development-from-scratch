@@ -55,6 +55,7 @@ function wpdevs_config()
     add_editor_style('style-editor.css');
 
     add_theme_support('wp-block-styles');
+    // add_theme_support('editor-color-styles', ');
 }
 
 add_action('after_setup_theme', 'wpdevs_config', 0);
@@ -65,6 +66,9 @@ function wpdevs_register_block_styles()
      * In Wordpress bloc editor, type in the JS console:
      * wp.blocks.getBlockTypes()
      */
+
+    wp_register_style('wpdevs-block-style', get_template_directory_uri() . '/block-style.css');
+
     register_block_style(
         'core/quote',
         array(
@@ -77,7 +81,7 @@ function wpdevs_register_block_styles()
     );
 }
 
-add_action('init-hook', 'wpdevs_register_block_styles');
+add_action('init', 'wpdevs_register_block_styles');
 
 function wpdevs_sidebars()
 {
